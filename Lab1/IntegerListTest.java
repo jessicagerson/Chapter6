@@ -56,6 +56,18 @@ public class IntegerListTest{
             case 4:
                 list.print();
                 break;
+            case 5:
+                System.out.print("Enter a old value in list: ");
+                int oldValue = scan.nextInt();
+                System.out.print("Enter a new value: ");
+                int newValue = scan.nextInt();
+                list.replaceFirst(oldValue, newValue);
+            case 6:
+                System.out.print("Enter a old value in list: ");
+                oldValue = scan.nextInt();
+                System.out.print("Enter a new value: ");
+                newValue = scan.nextInt();
+                list.replaceAll(oldValue, newValue);
             default:
                 System.out.println("Sorry, invalid choice");
             }
@@ -71,7 +83,10 @@ public class IntegerListTest{
         System.out.println("1: Create a new list (** do this first!! **)");
         System.out.println("2: Sort the list using selection sort");
         System.out.println("3: Find an element in the list using sequential search");
+       
         System.out.println("4: Print the list");
+         System.out.println("5: Replace value");
+         System.out.println("6: Replace all values");
         System.out.print("\nEnter your choice: ");
     }
 }

@@ -43,26 +43,52 @@ public class IntegerList{
     public int search(int target)
     {
        for (int i = 0; i < list.length; i++){
-           if (list[1] == target){
+           if (list[i] == target){
                return i;
             }
-            else{
-                return -1;
-            }
+            
         }
+        return -1;
     }
     //-------------------------------------------------------
     //sort the list into ascending order using the selection sort algorithm
     //-------------------------------------------------------
     public void selectionSort()
     {
-        int minIndex;
+        int smallest;
         for (int i=0; i < list.length-1; i++)
             {
                 //find smallest element in list starting at location i
-                
+                smallest = i;
+                for(int j = i; j < list.length - 1; j++) {
+                    if (list[j] < list[i]){
+                        smallest = j;
+                    }
+                }
+
                 //swap list[i] with smallest element
+                int temp = list[i];
+                list[i] = list[smallest];
+                list[smallest] = temp;
                 
             }
+    }
+    
+    public void replaceFirst(int oldVal, int newVal){
+        int loc = search(oldVal);
+        if(loc != -1) {
+            list[loc] = newVal;
+        }
+        
+        
+    }
+    
+    public void replaceAll(int oldVal, int newVal){
+        int loc = search(oldVal);
+        while(loc != -1) {
+            replaceFirst(oldVal, newVal);
+            loc = search(oldVal);
+        }
+        
     }
 }
